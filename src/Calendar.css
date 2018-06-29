@@ -1,0 +1,39 @@
+.Calendar {
+  max-width: 230px;
+  margin: 20px auto;
+}
+
+.Calendar-field {
+  display: grid;
+  grid-template-columns: 50px 150px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  width: 200px;
+}
+
+.Calendar-label {
+  text-align: left;
+}
+
+.Calendar-input {
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.Calendar-button {
+  background-color: #b3ecff;
+  border-color: #004d66;
+  border-radius: 3px;
+  border-style: solid;
+  color: #004d66;
+  font-size: 1em;
+  margin-top: 20px;
+  padding: 5px 20px;
+}
+
+.Calendar-button:hover {
+  background-color: #004d66;
+  border-color: #b3ecff;
+  color: #b3ecff;
+  cursor: pointer;
+}

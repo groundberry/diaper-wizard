@@ -3,12 +3,21 @@
 }
 
 .App-header {
+  vertical-align: middle;
   background-color: #b3ecff;
   padding: 20px;
   color: #004d66;
+  padding-top: 30px;
+}
+
+.App-icon {
+  display: inline;
+  font-size: 3em;
 }
 
 .App-title {
+  display: inline;
   font-size: 2em;
   font-family: 'Courgette', cursive;
+  margin-left: 10px;
 }

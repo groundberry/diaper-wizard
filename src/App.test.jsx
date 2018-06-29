@@ -1,9 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('App', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  });
+
+  it('renders with class name', () => {
+    expect(wrapper.hasClass('App')).toBe(true);
+  });
+
+  it('renders a calendar', () => {
+    expect(wrapper.find('Calendar')).toHaveLength(1);
+  });
+
+  it('has one header', () => {
+    expect(wrapper.find('.App-header')).toHaveLength(1);
+  });
+
+  it('has one content', () => {
+    expect(wrapper.find('.App-content')).toHaveLength(1);
+  });
 });
