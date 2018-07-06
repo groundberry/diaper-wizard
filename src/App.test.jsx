@@ -20,8 +20,4 @@ describe('App', () => {
   it('has one header', () => {
     expect(wrapper.find('.App-header')).toHaveLength(1);
   });
-
-  it('has one content', () => {
-    expect(wrapper.find('.App-content')).toHaveLength(1);
-  });
 });

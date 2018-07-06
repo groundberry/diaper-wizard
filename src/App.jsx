@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import Calendar from './Calendar';
+import DiapersSummary from './DiapersSummary';
 import DiapersChart from './DiapersChart';
 import calculator from './utils/calculator';
 import './App.css';
@@ -72,7 +73,10 @@ class App extends Component {
           onPickStartDate={this.onPickStartDate}
           onPickEndDate={this.onPickEndDate}
         />
-        <p className="App-content">Diapers needed for the first {numberOfDays} days: {numberOfDiapers}</p>
+        <DiapersSummary
+          days={numberOfDays}
+          diapers={numberOfDiapers}
+        />
         <DiapersChart
           days={numberOfDays}
         />
