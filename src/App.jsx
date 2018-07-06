@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import Calendar from './Calendar';
+import DiapersChart from './DiapersChart';
 import calculator from './utils/calculator';
 import './App.css';
 
@@ -18,7 +19,6 @@ class App extends Component {
     this.onPickStartDate = this.onPickStartDate.bind(this);
     this.onPickEndDate = this.onPickEndDate.bind(this);
     this.getNumberOfDays = this.getNumberOfDays.bind(this);
-    this.getDiapers = this.getDiapers.bind(this);
   }
 
   onPickStartDate(e) {
@@ -44,27 +44,20 @@ class App extends Component {
     return Math.round(selectedPeriod / days);
   }
 
-  getDiapers() {
-    const diaperDays = this.getNumberOfDays();
-    const numberOfDiapers = calculator(diaperDays);
-
-    this.setState({
-      numberOfDiapers,
-    });
-  }
-
   render() {
     const {
       startDate,
       endDate,
-      numberOfDiapers,
     } = this.state;
     let numberOfDays;
+    let numberOfDiapers;
 
     if (startDate !== '' && endDate !== '') {
       numberOfDays = this.getNumberOfDays();
+      numberOfDiapers = calculator(numberOfDays);
     } else {
-      numberOfDays = '';
+      numberOfDays = null;
+      numberOfDiapers = null;
     }
 
     return (
@@ -78,9 +71,11 @@ class App extends Component {
           end={endDate}
           onPickStartDate={this.onPickStartDate}
           onPickEndDate={this.onPickEndDate}
-          onClickGetDiapers={this.getDiapers}
         />
         <p className="App-content">Diapers needed for the first {numberOfDays} days: {numberOfDiapers}</p>
+        <DiapersChart
+          days={numberOfDays}
+        />
       </div>
     );
   }
