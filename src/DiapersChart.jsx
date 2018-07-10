@@ -11,7 +11,7 @@ function DiapersChart(props) {
   const arrayOfDiapers = getArrayOfDiapers(props.days);
   return (
     <table className="DiapersChart">
-      <tbody>
+      <tbody className="DiapersChart-header">
         <tr>
           <th>Day</th>
           <th>Number of diapers</th>
@@ -20,7 +20,7 @@ function DiapersChart(props) {
       <tbody>
         {arrayOfDiapers.map((array, i) => (
           // eslint-disable-next-line react/no-array-index-key
-          <tr key={i}>
+          <tr key={i} className="DiapersChart-row">
             <td>{i + 1}</td>
             <td>{arrayOfDiapers[i]}</td>
           </tr>

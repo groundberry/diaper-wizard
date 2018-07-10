@@ -1,3 +1,16 @@
 .DiapersChart {
+  border-style: solid;
   margin: 20px auto;
+  width: 230px;
+  border-collapse: collapse;
+}
+
+.DiapersChart-header {
+  background-color: #b3ecff;
+}
+
+.DiapersChart-row {
+  border-bottom-style: solid;
+  border-bottom-color: #b3ecff;
+  border-bottom-width: 2px;
 }
