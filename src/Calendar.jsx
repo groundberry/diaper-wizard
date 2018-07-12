@@ -16,6 +16,31 @@ function Calendar(props) {
             className="Calendar-label"
           >
             <label
+              htmlFor="birth"
+            >
+              Birth
+            </label>
+          </div>
+          <div
+            className="Calendar-input"
+          >
+            <input
+              className="Calendar-input-birth"
+              type="date"
+              id="birth"
+              name="birth"
+              value={props.birth}
+              onChange={props.onPickBirthDate}
+            />
+          </div>
+        </div>
+        <div
+          className="Calendar-field"
+        >
+          <div
+            className="Calendar-label"
+          >
+            <label
               htmlFor="start"
             >
               Start
@@ -53,7 +78,7 @@ function Calendar(props) {
               className="Calendar-input-end"
               type="date"
               id="end"
-              name="diapers"
+              name="end"
               value={props.end}
               onChange={props.onPickEndDate}
             />
@@ -65,13 +90,16 @@ function Calendar(props) {
 }
 
 Calendar.propTypes = {
+  birth: PropTypes.string,
   start: PropTypes.string,
   end: PropTypes.string,
+  onPickBirthDate: PropTypes.func.isRequired,
   onPickStartDate: PropTypes.func.isRequired,
   onPickEndDate: PropTypes.func.isRequired,
 };
 
 Calendar.defaultProps = {
+  birth: null,
   start: null,
   end: null,
 };

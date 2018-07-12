@@ -1,11 +1,11 @@
 import getDiapersPerDay from './getDiapersPerDay';
 
-export default function getArrayOfDiapers(days) {
+export default function getArrayOfDiapers(startingDay, numberOfDays) {
   const result = [];
+  const period = startingDay + numberOfDays;
 
-  for (let i = 1; i <= days; i += 1) {
+  for (let i = startingDay; i < period; i += 1) {
     result.push(getDiapersPerDay(i));
   }
-
   return result;
 }

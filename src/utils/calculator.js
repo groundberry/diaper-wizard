@@ -1,10 +1,7 @@
-import getDiapersPerDay from './getDiapersPerDay';
-
-export default function calculator(period) {
+export default function calculator(arrayOfDiapers) {
   let result = 0;
-
-  for (let i = 0; i <= period; i += 1) {
-    result += getDiapersPerDay(i);
+  for (let i = 0; i < arrayOfDiapers.length; i += 1) {
+    result += arrayOfDiapers[i];
   }
 
   return result;

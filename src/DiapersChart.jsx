@@ -4,11 +4,13 @@ import getArrayOfDiapers from './utils/getArrayOfDiapers';
 import './DiapersChart.css';
 
 function DiapersChart(props) {
-  if (props.days == null) {
+  const { startingDay, days } = props;
+  const arrayOfDiapers = getArrayOfDiapers(startingDay, days);
+
+  if (days == null) {
     return null;
   }
 
-  const arrayOfDiapers = getArrayOfDiapers(props.days);
   return (
     <table className="DiapersChart">
       <tbody className="DiapersChart-header">
@@ -21,7 +23,7 @@ function DiapersChart(props) {
         {arrayOfDiapers.map((array, i) => (
           // eslint-disable-next-line react/no-array-index-key
           <tr key={i} className="DiapersChart-row">
-            <td>{i + 1}</td>
+            <td>{i + startingDay}</td>
             <td>{arrayOfDiapers[i]}</td>
           </tr>
           ))}
@@ -32,10 +34,12 @@ function DiapersChart(props) {
 
 DiapersChart.propTypes = {
   days: PropTypes.number,
+  startingDay: PropTypes.number,
 };
 
 DiapersChart.defaultProps = {
   days: null,
+  startingDay: null,
 };
 
 export default DiapersChart;

@@ -4,11 +4,13 @@ import Calendar from './Calendar';
 
 describe('Calendar', () => {
   let wrapper;
+  const onPickBirthDate = jest.fn();
   const onPickStartDate = jest.fn();
   const onPickEndDate = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(<Calendar
+      onPickBirthDate={onPickBirthDate}
       onPickStartDate={onPickStartDate}
       onPickEndDate={onPickEndDate}
     />);

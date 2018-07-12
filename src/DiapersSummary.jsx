@@ -12,7 +12,7 @@ function DiapersSummary(props) {
     <p
       className="DiapersSummary"
     >
-      You will need {diapers} diapers for the first {days} days of your baby.
+      You will need {diapers} diapers for the selected {days} days.
     </p>
   );
 }

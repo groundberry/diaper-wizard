@@ -1,18 +1,27 @@
 import calculator from './calculator';
 
 describe('calculator', () => {
-  it('returns 12 when the number of days is 3', () => {
-    const period = 3;
-    expect(calculator(period)).toBe(12);
+  describe('starting on day 1', () => {
+    it('returns 12 when the number of days is 3, starting on day 1', () => {
+      const arrayOfDiapers = [2, 4, 6];
+      expect(calculator(arrayOfDiapers)).toBe(12);
+    });
+
+    it('returns 21 when the number of days is 4, starting on day 1', () => {
+      const arrayOfDiapers = [2, 4, 6, 11];
+      expect(calculator(arrayOfDiapers)).toBe(23);
+    });
+
+    it('returns 1187 when the number of days is 10, starting on day 1', () => {
+      const arrayOfDiapers = [2, 4, 6, 11, 11, 11, 11, 11, 11, 11];
+      expect(calculator(arrayOfDiapers)).toBe(89);
+    });
   });
 
-  it('returns 21 when the number of days is 4', () => {
-    const period = 4;
-    expect(calculator(period)).toBe(21);
-  });
-
-  it('returns 1187 when the number of days is 111', () => {
-    const period = 111;
-    expect(calculator(period)).toBe(1198);
+  describe('starting on day 2', () => {
+    it('returns 10 when the number of days is 2, starting on day 2', () => {
+      const arrayOfDiapers = [4, 6];
+      expect(calculator(arrayOfDiapers)).toBe(10);
+    });
   });
 });

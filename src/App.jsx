@@ -4,7 +4,9 @@ import React, { Component } from 'react';
 import Calendar from './Calendar';
 import DiapersSummary from './DiapersSummary';
 import DiapersChart from './DiapersChart';
+import getArrayOfDiapers from './utils/getArrayOfDiapers';
 import calculator from './utils/calculator';
+import getNumberOfDays from './utils/getNumberOfDays';
 import './App.css';
 
 class App extends Component {
@@ -12,20 +14,33 @@ class App extends Component {
     super();
 
     this.state = {
+      birthDate: '',
       startDate: '',
       endDate: '',
+      startingDay: 1,
       numberOfDiapers: 0,
     };
 
+    this.onPickBirthDate = this.onPickBirthDate.bind(this);
     this.onPickStartDate = this.onPickStartDate.bind(this);
     this.onPickEndDate = this.onPickEndDate.bind(this);
-    this.getNumberOfDays = this.getNumberOfDays.bind(this);
+  }
+
+  onPickBirthDate(e) {
+    const birth = e.target.value;
+    this.setState({
+      birthDate: birth,
+      startDate: birth,
+    });
   }
 
   onPickStartDate(e) {
+    const { birthDate } = this.state;
     const start = e.target.value;
+
     this.setState({
       startDate: start,
+      startingDay: 1 + getNumberOfDays(birthDate, start),
     });
   }
 
@@ -36,26 +51,21 @@ class App extends Component {
     });
   }
 
-  getNumberOfDays() {
-    const { startDate, endDate } = this.state;
-    const selectedPeriod = Date.parse(endDate) - Date.parse(startDate);
-    const minutes = 1000 * 60;
-    const hours = minutes * 60;
-    const days = hours * 24;
-    return Math.round(selectedPeriod / days);
-  }
-
   render() {
     const {
+      birthDate,
       startDate,
       endDate,
+      startingDay,
     } = this.state;
     let numberOfDays;
+    let arrayOfDiapers;
     let numberOfDiapers;
 
     if (startDate !== '' && endDate !== '') {
-      numberOfDays = this.getNumberOfDays();
-      numberOfDiapers = calculator(numberOfDays);
+      numberOfDays = getNumberOfDays(startDate, endDate);
+      arrayOfDiapers = getArrayOfDiapers(startingDay, numberOfDays);
+      numberOfDiapers = calculator(arrayOfDiapers);
     } else {
       numberOfDays = null;
       numberOfDiapers = null;
@@ -68,8 +78,10 @@ class App extends Component {
           <h1 className="App-title">Diaper Wizard</h1>
         </header>
         <Calendar
+          birth={birthDate}
           start={startDate}
           end={endDate}
+          onPickBirthDate={this.onPickBirthDate}
           onPickStartDate={this.onPickStartDate}
           onPickEndDate={this.onPickEndDate}
         />
@@ -78,6 +90,7 @@ class App extends Component {
           diapers={numberOfDiapers}
         />
         <DiapersChart
+          startingDay={startingDay}
           days={numberOfDays}
         />
       </div>
