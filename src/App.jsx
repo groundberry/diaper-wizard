@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Calendar from './Calendar';
 import DiapersSummary from './DiapersSummary';
 import DiapersChart from './DiapersChart';
+import DiapersChartLegend from './DiapersChartLegend';
 import getArrayOfDiapers from './utils/getArrayOfDiapers';
 import calculator from './utils/calculator';
 import getNumberOfDays from './utils/getNumberOfDays';
@@ -93,6 +94,7 @@ class App extends Component {
           startingDay={startingDay}
           days={numberOfDays}
         />
+        <DiapersChartLegend />
       </div>
     );
   }

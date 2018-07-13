@@ -1,0 +1,13 @@
+.DiapersChartLegend {
+  margin: 0 auto;
+  max-width: 350px;
+}
+
+.DiapersChartLegend-header {
+  font-size: 1em;
+}
+
+.DiapersChartLegend-list {
+  text-align: left;
+  padding: 0 30px;
+}
