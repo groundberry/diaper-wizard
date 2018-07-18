@@ -14,3 +14,19 @@
   border-bottom-color: #b3ecff;
   border-bottom-width: 2px;
 }
+
+.DiapersChart-nb {
+  background-color: #e6f5ff;
+}
+
+.DiapersChart-one {
+  background-color: #80ccff;
+}
+
+.DiapersChart-two {
+  background-color: #33adff;
+}
+
+.DiapersChart-three {
+  background-color: #008ae6;
+}

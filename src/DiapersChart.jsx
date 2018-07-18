@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getArrayOfDiapers from './utils/getArrayOfDiapers';
+import { getDiaperColor } from './utils/getDiaperInfo';
 import './DiapersChart.css';
 
 function DiapersChart(props) {
@@ -22,7 +23,7 @@ function DiapersChart(props) {
       <tbody>
         {arrayOfDiapers.map((array, i) => (
           // eslint-disable-next-line react/no-array-index-key
-          <tr key={i} className="DiapersChart-row">
+          <tr key={i} className={`DiapersChart-row ${getDiaperColor(i + startingDay)}`}>
             <td>{i + startingDay}</td>
             <td>{arrayOfDiapers[i]}</td>
           </tr>
