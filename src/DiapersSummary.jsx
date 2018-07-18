@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './DiapersSummary.css';
 
 function DiapersSummary(props) {
   const { days, diapers } = props;
@@ -9,11 +10,11 @@ function DiapersSummary(props) {
   }
 
   return (
-    <p
+    <div
       className="DiapersSummary"
     >
-      You will need {diapers} diapers for the selected {days} days.
-    </p>
+      <p>You will need {diapers} diapers for the selected {days} days.</p>
+    </div>
   );
 }
 
